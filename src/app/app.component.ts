@@ -55,9 +55,13 @@ export class AppComponent implements OnInit {
 
   delete(item : any){
     this.task.delete(item._id).subscribe(res=>{
-      alert('deleted!')
+
+      if(confirm('are you sure?')){
+        alert('deleted!')
+        window.location.reload()
+      }
+      // alert('deleted!')
     })
-    window.location.reload()
   }
   id = ""
   edit(item:any){
